@@ -14,19 +14,19 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -t mikeb/flask_app .'
+        sh 'docker build -t bolade4/flask_app .'
       }
     }
 
     stage('Docker Login') {
       steps {
-        sh 'docker login -u mikeb -p dckr_pat__ybsNSmfPt4kju3wLAE6dHoiDH4'
+        sh 'docker login -u bolade4 -p dckr_pat__ybsNSmfPt4kju3wLAE6dHoiDH4'
       }
     }
 
     stage('Docker Push') {
       steps {
-        sh 'docker push mikeb/flask_app'
+        sh 'docker push bolade4/flask_app'
       }
     }
 
