@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = 'mikeb/flask_app'
+        registry = 'bolade4/flask_app'
         registryCredentials = 'docker'
         cluster_name = 'skillstorm'
     }
