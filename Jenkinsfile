@@ -14,7 +14,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -t bolade4/flaski-app .'
+        sh 'docker build -t bolade4/flask-app .'
       }
     }
 
@@ -26,7 +26,7 @@ pipeline {
 
     stage('Docker Push') {
       steps {
-        sh 'docker push bolade4/flaski-app'
+        sh 'docker push bolade4/flask_app'
       }
     }
 
