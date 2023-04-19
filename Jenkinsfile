@@ -1,4 +1,9 @@
 pipeline {
+  environment {
+    registry = 'bolade4/flask_app'
+    registryCredentials = 'docker'
+    cluster_name = 'skillstorm'
+  }
   agent {
     node {
       label 'docker'
@@ -12,23 +17,21 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('Build Stage') {
       steps {
-        sh 'docker build -t bolade4/flask_app .'
+        script {
+          dockerImage = docker.build(registry)
+        }
       }
     }
 
-    stage('Docker Login') {
+    stage('Deploy State') {
       steps {
-        sh 'docker login -u bolade4 -p dckr_pat__ybsNSmfPt4kju3wLAE6dHoiDH4'
+        script {
+          docker.withRegistry('', registryCredentials) {
+            dockerImage.push()
+          }
+        }
       }
     }
-
-    stage('Docker Push') {
-      steps {
-        sh 'docker push bolade4/flask_app'
-      }
-    }
-
-  }
 }
