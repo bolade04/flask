@@ -14,13 +14,13 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -t bolade4/flask-app .'
+        sh 'docker build -t bolade4/flask_app .'
       }
     }
 
     stage('Docker Login') {
       steps {
-        sh 'docker login -u bolade4 -p dckr_pat_iD7040ExToLV28NDOrRk6jDjaLo'
+        sh 'docker login -u bolade4 -p dckr_pat_H5QLaPXby3W8vtnZh-iR4WliPD0'
       }
     }
 
